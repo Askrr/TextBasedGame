@@ -126,7 +126,7 @@ def bifrost_menu():
         elif user_i == 2:
             print(deaths[1])
             quit()
-        elif (user_i <= 0) or (user_i >= 2):
+        elif (user_i <= 0) or (user_i >= 3):
             return error(), bifrost_menu()
 
 
@@ -160,7 +160,7 @@ def asgard_menu():
         elif user_i == 6:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 6):
+        elif (user_i <= 0) or (user_i >= 7):
             return error(), asgard_menu()
 
 
@@ -192,7 +192,7 @@ def valhalla_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 4):
+        elif (user_i <= 0) or (user_i >= 5):
             return error(), valhalla_menu()
 
 
@@ -228,7 +228,7 @@ def hel_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 4):
+        elif (user_i <= 0) or (user_i >= 5):
             return error(), hel_menu()
 
 
@@ -263,7 +263,7 @@ def muspelheim_menu():
         elif user_i == 5:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 5):
+        elif (user_i <= 0) or (user_i >= 6):
             return error(), muspelheim_menu()
 
 
@@ -277,7 +277,7 @@ def vanaheim_menu():
         print('That is not a number from the list, try again!')
         return vanaheim_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 5):
+    while (user_i > 0) and (user_i < 4):
         if user_i == 1:
             return muspelheim_menu()
         elif user_i == 2:
@@ -296,7 +296,7 @@ def vanaheim_menu():
         elif user_i == 3:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 3):
+        elif (user_i <= 0) or (user_i >= 4):
             return error(), vanaheim_menu()
 
 
@@ -339,7 +339,7 @@ def jotunheim_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 4):
+        elif (user_i <= 0) or (user_i >= 5):
             return error(), jotunheim_menu()
 
 
@@ -353,7 +353,7 @@ def kingdom_menu():
         print('That is not a number from the list, try again!')
         return kingdom_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 6):
+    while (user_i > 0) and (user_i < 5):
         if user_i == 1:
             print(deaths[2])
             quit()
@@ -370,14 +370,14 @@ def kingdom_menu():
             else:
                 return print('There is no time to waste! You must hurry to the Throne room and battle'
                              ' Tyr!'), kingdom_menu()
-        elif user_i == 5:
+        elif user_i == 4:
             print(deaths[4])
             quit()
         elif (user_i <= 0) or (user_i >= 5):
             return error(), kingdom_menu()
 
 def throne_menu():
-    if len(inventory_list) == 6:
+    if len(inventory_list) == 7:
         print('You enter Odin/s Throne room where Tyr is sitting on the Throne.\n'
               'You charge at him with Mjollnir equipped in your left hand and Fenrir/s Claw Shield attached to your'
               'right.\n'
