@@ -120,15 +120,14 @@ def bifrost_menu():
         print('That is not a number from the list, try again!')
         return bifrost_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 3):
+    if (user_i > 0) and (user_i < 3):
         if user_i == 1:
             return asgard_menu()
         elif user_i == 2:
             print(deaths[1])
             quit()
-        elif (user_i <= 0) or (user_i >= 3):
-            return error(), bifrost_menu()
-
+    else:
+        return error(), bifrost_menu()
 
 def asgard_menu():
     print(inventory_list)
@@ -140,7 +139,7 @@ def asgard_menu():
         print('That is not a number from the list, try again!')
         return asgard_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 7):
+    if (user_i > 0) and (user_i < 7):
         if user_i == 1:
             return throne_menu()
         elif user_i == 2:
@@ -160,8 +159,8 @@ def asgard_menu():
         elif user_i == 6:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 7):
-            return error(), asgard_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def valhalla_menu():
@@ -174,7 +173,7 @@ def valhalla_menu():
         print('That is not a number from the list, try again!')
         return valhalla_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 5):
+    if (user_i > 0) and (user_i < 5):
         if user_i == 1:
             return asgard_menu()
         elif user_i == 2:
@@ -192,8 +191,8 @@ def valhalla_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 5):
-            return error(), valhalla_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def hel_menu():
@@ -211,7 +210,7 @@ def hel_menu():
         print('That is not a number from the list, try again!')
         return hel_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 5):
+    if (user_i > 0) and (user_i < 5):
         if user_i == 1:
             return valhalla_menu()
         elif user_i == 2:
@@ -228,8 +227,8 @@ def hel_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 5):
-            return error(), hel_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def muspelheim_menu():
@@ -242,7 +241,7 @@ def muspelheim_menu():
         print('That is not a number from the list, try again!')
         return muspelheim_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 6):
+    if (user_i > 0) and (user_i < 6):
         if user_i == 1:
             return asgard_menu()
         elif user_i == 2:
@@ -263,8 +262,8 @@ def muspelheim_menu():
         elif user_i == 5:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 6):
-            return error(), muspelheim_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def vanaheim_menu():
@@ -277,7 +276,7 @@ def vanaheim_menu():
         print('That is not a number from the list, try again!')
         return vanaheim_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 4):
+    if (user_i > 0) and (user_i < 4):
         if user_i == 1:
             return muspelheim_menu()
         elif user_i == 2:
@@ -296,8 +295,8 @@ def vanaheim_menu():
         elif user_i == 3:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 4):
-            return error(), vanaheim_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def jotunheim_menu():
@@ -316,7 +315,7 @@ def jotunheim_menu():
         print('That is not a number from the list, try again!')
         return hel_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 5):
+    if (user_i > 0) and (user_i < 5):
         if user_i == 1:
             return muspelheim_menu()
         if user_i == 2:
@@ -339,8 +338,8 @@ def jotunheim_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 5):
-            return error(), jotunheim_menu()
+    else:
+        return error(), bifrost_menu()
 
 
 def kingdom_menu():
@@ -353,7 +352,7 @@ def kingdom_menu():
         print('That is not a number from the list, try again!')
         return kingdom_menu()
     user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    while (user_i > 0) and (user_i < 5):
+    if (user_i > 0) and (user_i < 5):
         if user_i == 1:
             print(deaths[2])
             quit()
@@ -373,8 +372,8 @@ def kingdom_menu():
         elif user_i == 4:
             print(deaths[4])
             quit()
-        elif (user_i <= 0) or (user_i >= 5):
-            return error(), kingdom_menu()
+    else:
+        return error(), bifrost_menu()
 
 def throne_menu():
     if len(inventory_list) == 7:
