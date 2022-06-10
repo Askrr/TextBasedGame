@@ -6,45 +6,45 @@
 # dictionary created for areas, actions, and items in game
 ###
 
-areas_text = {1: {'east': '1) Go east to Asgard.',
+areas_text = {1: {'east': '1) Go across the bridge to Asgard. (go east)',
                   'text': 'You have arrived across space and time to the Bifrost!',
-                  'exit': '2) Jump off bridge!'},
-              2: {'east': '1) Venture east into Odin/s Throne room',
-                  'north': '2) Travel north to the great hall, Valhalla',
-                  'south': '3) Head south to the valley of Muspelheim',
-                  'west': '4) Head back to the Bifrost bridge.',
-                  'item': '5) Search for item....',
+                  'exit': '2) Jump off bridge! (quit)'},
+              2: {'east': '1) Venture deep into Odin/s Throne room (go east)',
+                  'north': '2) Travel up to the great hall, Valhalla (go north)',
+                  'south': '3) Head out to the valley of Muspelheim (go south)',
+                  'west': '4) Head back to the Bifrost bridge. (go west)',
+                  'item': '5) Search for item.... (get item)',
                   'text': 'You enter into the great city of Asgard.....in ruins.....',
-                  'exit': '6) Give up!'},
-              3: {'south': '1) Travel back south to Asgard.',
-                  'north': '2) Take the flaming portal north to Hel!',
-                  'item': '3) Talk to Odin',
+                  'exit': '6) Give up! (quit)'},
+              3: {'south': '1) Travel down south to Asgard. (go south)',
+                  'north': '2) Take the flaming portal to Hel! (go north)',
+                  'item': '3) Talk to Odin (get item)',
                   'text': 'You see the Valkyries welcome you into Valhalla.',
-                  'exit': '4) Give up!'},
-              4: {'south': '1) Take the flaming portal back south to Valhalla.',
-                  'item': '2) Offer a trade to Fenrir',
+                  'exit': '4) Give up! (quit)'},
+              4: {'south': '1) Take the flaming portal back to Valhalla. (go south)',
+                  'item': '2) Offer a trade to Fenrir (get item)',
                   'text': 'You are transported to the depths of the underword; Welcome to Hel!',
-                  'exit': '3) Give up!'},
-              5: {'north': '1) Walk north back to Asgard',
-                  'west': '2) Climb down west to the Ruins of Vanaheim',
-                  'east': '3) Climb up east to the land of giants, Jotunheim.',
-                  'item': '4) Plead with Frigg',
+                  'exit': '3) Give up! (quit)'},
+              5: {'north': '1) Walk trek back to Asgard (go north)',
+                  'west': '2) Trench through the valley to the Ruins of Vanaheim (go west)',
+                  'east': '3) Climb up the mountains to the land of giants, Jotunheim. (go east)',
+                  'item': '4) Plead with Frigg (get item)',
                   'text': 'You arrive deep in the mountains of Muspelheim.',
-                  'exit': '5) Give up!'},
-              6: {'east': '1) Travel back east to Muspelheim',
-                  'item': '2) Steal from Loki',
+                  'exit': '5) Give up! (quit)'},
+              6: {'east': '1) Travel back into the valley to Muspelheim (go east)',
+                  'item': '2) Steal from Loki (get item)',
                   'text': 'You enter the ruins of Vanaheim.',
-                  'exit': '3) Give up!'},
-              7: {'west': '1) Head back down the mountain to Muspelheim',
-                  'north': '2) Take the secret passage north to the Kingdom of the Dwarves',
-                  'item': '3) Unclasp the dead giants hand',
+                  'exit': '3) Give up! (quit)'},
+              7: {'west': '1) Head back down the mountain to Muspelheim (go west)',
+                  'north': '2) Take the secret passage up to the Kingdom of the Dwarves (go north)',
+                  'item': '3) Unclasp the dead giants hand (get item)',
                   'text': 'You arrive in a harsh blizzard in the home of the frost giants, Jotunheim.',
-                  'exit': '4) Give up!'},
-              8: {'south': '1) Take the passage back down to Jotunheim',
-                  'west': '2) Leap out into the void',
-                  'item': '3) Ask the dwarves to relight the forge!!',
+                  'exit': '4) Give up! (quit)'},
+              8: {'south': '1) Take the passage back down to Jotunheim (go south)',
+                  'west': '2) Leap out into the void (go west)',
+                  'item': '3) Ask the dwarves to relight the forge!! (get item)',
                   'text': 'Through a secret path you stumble upon the Dwarven Kingdom!',
-                  'exit': '4) Give up!'},
+                  'exit': '4) Give up! (quit)'},
               9: {'name': 'Odin/s Throne Room', 'boss': 'Tyr'}
               }
 #####################################################################################
@@ -86,12 +86,10 @@ kingdom_options = '{}\n{}\n{}\n{}'.format(areas_text[8]['south'], areas_text[8][
 
 
 ##
-# Defining function for error if user inputs something not in choices (numbers only) if
-# a number is not entered it will check for that in each menu's funtion and report error
-# and make them choose again
+# Defining function for error if user inputs something not in choices
 ##
 def error():
-    print('That is an invalid choice! \nPlease select a choice from the menu!')
+    print('That is an invalid choice! \nPlease select a choice from the menu! (E.g. go north)')
 
 
 ##
@@ -116,14 +114,10 @@ def bifrost_menu():
     print(bifrost_options)
     print('Enter a number to pick your choice >> ')
     user_i = input()
-    if user_i.isdigit() != True:  # if input is not a digit, ex: str - then will be promted to try again
-        print('That is not a number from the list, try again!')
-        return bifrost_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 3):
-        if user_i == 1:
+    if (user_i == 'go east') or (user_i == 'quit'):
+        if user_i == 'go east':
             return asgard_menu()
-        elif user_i == 2:
+        elif user_i == 'quit':
             print(deaths[1])
             quit()
     else:
@@ -135,20 +129,17 @@ def asgard_menu():
     print(asgard_options)
     print('Enter a number to pick your choice >> ')
     user_i = input()
-    if user_i.isdigit() != True:  # if input is not a digit, ex: str - then will be promted to try again
-        print('That is not a number from the list, try again!')
-        return asgard_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 7):
-        if user_i == 1:
+    if (user_i == 'go north') or (user_i == 'go west') or (user_i == 'go east') or (user_i == 'go south') \
+            or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go east':
             return throne_menu()
-        elif user_i == 2:
+        elif user_i == 'go north':
             return valhalla_menu()
-        elif user_i == 3:
+        elif user_i == 'go south':
             return muspelheim_menu()
-        elif user_i == 4:
+        elif user_i == 'go west':
             return bifrost_menu()
-        elif user_i == 5:
+        elif user_i == 'get item':
             if 'Map of the city' not in inventory_list:
                 inventory_list.append('Map of the city')
                 return print('You dig through the rubble and find a small box.\n'
@@ -156,7 +147,7 @@ def asgard_menu():
                              ' added to your inventory!'), asgard_menu()
             else:
                 return print('You already scourged the city and have obtained this item!'), asgard_menu()
-        elif user_i == 6:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -168,17 +159,13 @@ def valhalla_menu():
     print(areas_text[3]['text'])
     print(valhalla_options)
     print('Enter a number to pick your choice >> ')
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return valhalla_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 5):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go north') or (user_i == 'go south') or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go south':
             return asgard_menu()
-        elif user_i == 2:
+        elif user_i == 'go north':
             return hel_menu()
-        elif user_i == 3:
+        elif user_i == 'get item':
             if 'Odin/s Right Eye' not in inventory_list:
                 inventory_list.append('Odin/s Right Eye')
                 return print('You explain the quest you/re on to avenge him and save his beloved city.....'
@@ -188,7 +175,7 @@ def valhalla_menu():
             else:
                 return print('Odin tells you to seek out his wife, Frigg. Perhaps she has something for you that will'
                              ' help you along the way!'), valhalla_menu()
-        elif user_i == 4:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -205,15 +192,11 @@ def hel_menu():
     print('Enter a number to pick your choice >> ')
     print(areas_text[4]['text'])
     print(hel_options)
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return hel_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 5):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go south') or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go south':
             return valhalla_menu()
-        elif user_i == 2:
+        elif user_i == 'get item':
             if 'Fenrir/s Claw Shield' not in inventory_list:
                 inventory_list.append('Fenrir/s Claw Shield')
                 return print('You hold up Frigg/s Potion and Fenrir/s eye begin to glisten.\n'
@@ -224,7 +207,7 @@ def hel_menu():
                              'Fenrir/s Claw Shield is added to your inventory!'), hel_menu()
             else:
                 return print('Fenrir has left this place. There is nothing more to collect.'), hel_menu()
-        elif user_i == 4:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -236,19 +219,16 @@ def muspelheim_menu():
     print(areas_text[5]['text'])
     print(muspelheim_options)
     print('Enter a number to pick your choice >> ')
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return muspelheim_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 6):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go north') or (user_i == 'go west') or (user_i == 'go east') or (user_i == 'get item')\
+            or (user_i == 'quit'):
+        if user_i == 'go north':
             return asgard_menu()
-        elif user_i == 2:
+        elif user_i == 'go west':
             return vanaheim_menu()
-        elif user_i == 3:
+        elif user_i == 'go east':
             return jotunheim_menu()
-        elif user_i == 4:
+        elif user_i == 'get item':
             if 'Frigg/s Potion' not in inventory_list:
                 inventory_list.append('Frigg/s Potion')
                 return print('You sit down with Frigg. She is in distress on what has happened to her husband and \n'
@@ -259,7 +239,7 @@ def muspelheim_menu():
             else:
                 return print('Frigg urges you to explore for others that may have some truth and guidence. \n'
                              'Take her potion and use if wisely!'), muspelheim_menu()
-        elif user_i == 5:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -271,15 +251,11 @@ def vanaheim_menu():
     print('Enter a number to pick your choice >> ')
     print(areas_text[6]['text'])
     print(vanaheim_options)
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return vanaheim_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 4):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go east') or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go east':
             return muspelheim_menu()
-        elif user_i == 2:
+        elif user_i == 'get item':
             if 'Loki/s Knowledge' not in inventory_list:
                 inventory_list.append('Loki/s Knowledge')
                 return print('As you come upon the beach in the Ruins of Vanaheim, a shadow figure lies on the beach.\n'
@@ -292,7 +268,7 @@ def vanaheim_menu():
                              'Loki/s Knowledge is added to your inventory!'), vanaheim_menu()
             else:
                 return print('Quickly, before Loki notices, you need to leave!!!'), vanaheim_menu()
-        elif user_i == 3:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -310,15 +286,11 @@ def jotunheim_menu():
     print('Enter a number to pick your choice >> ')
     print(areas_text[7]['text'])
     print(jotunheim_options)
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return hel_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 5):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go west') or (user_i == 'go north') or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go west':
             return muspelheim_menu()
-        if user_i == 2:
+        if user_i == 'go north':
             if 'Dwarven Compass' not in inventory_list:
                 print('You are unable to find your way to passage. Perhaps there is an item you need?')
                 return jotunheim_menu()
@@ -326,7 +298,7 @@ def jotunheim_menu():
                 print('With the inner sight that Odin/s Right Eye gives you, you can use the Dwarven Compass to find'
                       ' your way to a secret passage.')
                 return kingdom_menu()
-        elif user_i == 3:
+        elif user_i == 'get item':
             if 'Dwarven Compass' not in inventory_list:
                 inventory_list.append('Dwarven Compass')
                 return print('Amongst the snow drifts you see a fallen giant.\n'
@@ -335,7 +307,7 @@ def jotunheim_menu():
                              'Dwarven Compass is added to your inventory!'), jotunheim_menu()
             else:
                 return print('You have the compass. Along with Odin/s eye you will be able to use it'), jotunheim_menu()
-        elif user_i == 4:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
@@ -347,19 +319,15 @@ def kingdom_menu():
     print(areas_text[8]['text'])
     print(kingdom_options)
     print('Enter a number to pick your choice >> ')
-    user_i = input()  # if input is not a digit, ex: str - then will be promted to try again
-    if user_i.isdigit() != True:
-        print('That is not a number from the list, try again!')
-        return kingdom_menu()
-    user_i = int(user_i)  # after checking if its a digit entered, convert the user_i to an int so you can use in loop
-    if (user_i > 0) and (user_i < 5):
-        if user_i == 1:
+    user_i = input()
+    if (user_i == 'go south') or (user_i == 'go west') or (user_i == 'get item') or (user_i == 'quit'):
+        if user_i == 'go south':
             print(deaths[2])
             quit()
-        elif user_i == 2:
+        elif user_i == 'go west':
             print('Falling into the void you enter a wormhole! You are transported safely back to the Bifrost!')
             return bifrost_menu()
-        elif user_i == 3:
+        elif user_i == 'get item':
             if 'Mjollnir' not in inventory_list:
                 inventory_list.append('Mjollnir')
                 return print('The dwarves greet you with tired hands. \nAs their forge heats up with the power from'
@@ -369,7 +337,7 @@ def kingdom_menu():
             else:
                 return print('There is no time to waste! You must hurry to the Throne room and battle'
                              ' Tyr!'), kingdom_menu()
-        elif user_i == 4:
+        elif user_i == 'quit':
             print(deaths[4])
             quit()
     else:
