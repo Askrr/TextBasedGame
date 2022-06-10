@@ -106,7 +106,8 @@ deaths = {
 
 
 ##
-# Defining menus for each area
+# Defining menus for each area. In each area the menu will print off the current inventory,
+# the text for the zone from the main areas_text dictionary, and the options for that zone.
 ##
 def bifrost_menu():
     print(inventory_list)
@@ -357,7 +358,10 @@ def throne_menu():
               'GAME OVER')
         quit()
 
-
+##
+# Running the game will produce this first print off message and then the starting area's menu;
+# which is the bifrost.
+##
 print(
     'You emerge into a strange area with no memory of who you are.\nThere/s a voice from behind you that tells you his'
     ' name is Heimdall. He tells you that Thor/s brother Tyr has gone mad and taken over the throne in Asgard city.\n'
