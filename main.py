@@ -113,7 +113,7 @@ def bifrost_menu():
     print(inventory_list)
     print(areas_text[1]['text'])
     print(bifrost_options)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     user_i = input()
     if (user_i == 'go east') or (user_i == 'quit'):
         if user_i == 'go east':
@@ -128,7 +128,7 @@ def asgard_menu():
     print(inventory_list)
     print(areas_text[2]['text'])
     print(asgard_options)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     user_i = input()
     if (user_i == 'go north') or (user_i == 'go west') or (user_i == 'go east') or (user_i == 'go south') \
             or (user_i == 'get item') or (user_i == 'quit'):
@@ -159,7 +159,7 @@ def valhalla_menu():
     print(inventory_list)
     print(areas_text[3]['text'])
     print(valhalla_options)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     user_i = input()
     if (user_i == 'go north') or (user_i == 'go south') or (user_i == 'get item') or (user_i == 'quit'):
         if user_i == 'go south':
@@ -190,7 +190,7 @@ def hel_menu():
     if 'Frigg/s Potion' not in inventory_list:
         print(deaths[3])
         quit()
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     print(areas_text[4]['text'])
     print(hel_options)
     user_i = input()
@@ -219,7 +219,7 @@ def muspelheim_menu():
     print(inventory_list)
     print(areas_text[5]['text'])
     print(muspelheim_options)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     user_i = input()
     if (user_i == 'go north') or (user_i == 'go west') or (user_i == 'go east') or (user_i == 'get item')\
             or (user_i == 'quit'):
@@ -249,7 +249,7 @@ def muspelheim_menu():
 
 def vanaheim_menu():
     print(inventory_list)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     print(areas_text[6]['text'])
     print(vanaheim_options)
     user_i = input()
@@ -284,7 +284,7 @@ def jotunheim_menu():
         print('The snowy blizzard up the mountain into Jotunheim is too much for you bear.\n'
               'You turn around before you lose your way and head back to the Muspelheim valley.')
         return muspelheim_menu()
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     print(areas_text[7]['text'])
     print(jotunheim_options)
     user_i = input()
@@ -319,7 +319,7 @@ def kingdom_menu():
     print(inventory_list)
     print(areas_text[8]['text'])
     print(kingdom_options)
-    print('Enter a number to pick your choice >> ')
+    print('Make your decision on what to do >> ')
     user_i = input()
     if (user_i == 'go south') or (user_i == 'go west') or (user_i == 'get item') or (user_i == 'quit'):
         if user_i == 'go south':
